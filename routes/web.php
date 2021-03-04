@@ -26,5 +26,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::resource('users', 'UsersController', ['only' => ['show']]);
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::put('users', 'UsersController@rename')->name('rename'); //追記
     Route::resource('movies', 'MoviesController', ['only' => ['create', 'store', 'destroy']]);
 });
